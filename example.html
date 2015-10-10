@@ -1,0 +1,21 @@
+<section ng-app="app" ng-controller="AppController">
+    <div class="drop-area" id="drop-area"
+         file-drop on-drop="logFile(file)" drag-over-class="drop-area--dragover">
+        {{ dragText }}
+    </div>
+</section>
+
+<script>
+angular
+  .module('app', ['ngFileDrop'])
+
+  .controller('AppController', function($scope){
+        $scope.dragText = 'Drop File';
+        $scope.logFile = function(files){
+            console.log('DROPPED', files[0].name);
+            $scope.$apply(function(){
+                $scope.dragText = files[0].name;
+            });
+        };
+  });
+</script>
