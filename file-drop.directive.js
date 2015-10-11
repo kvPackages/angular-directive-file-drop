@@ -29,7 +29,7 @@ angular
 
 	                var handleFileSelect = function(e){
 	                    handleDrag(e);
-	                    scope.onDrop({ file: e.target.files || e.dataTransfer.files });
+	                    scope.onDrop({ files: (e.target.files || e.dataTransfer.files) });
 	                };
 
 	                dropArea.bind('dragover', handleDrag);
